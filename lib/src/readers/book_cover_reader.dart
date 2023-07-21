@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'dart:typed_data';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:image/image.dart' as images;
 
@@ -40,7 +40,11 @@ class BookCoverReader {
     coverImageContentFileRef = bookRef.Content!.Images![coverManifestItem.Href];
     var coverImageContent =
         await coverImageContentFileRef!.readContentAsBytes();
-    var retval = images.decodeImage(coverImageContent);
+
+    // Convert List<int> to Uint8List
+    var coverImageContentUint8 = Uint8List.fromList(coverImageContent);
+
+    var retval = images.decodeImage(coverImageContentUint8);
     return retval;
   }
 }

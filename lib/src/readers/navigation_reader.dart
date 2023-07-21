@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:async';
 
 import 'package:archive/archive.dart';
@@ -165,7 +167,7 @@ class NavigationReader {
       var navMap = readNavigationMapV3(navMapNode);
       result.NavMap = navMap;
 
-      //TODO : Implement pagesLists
+
 //      xml.XmlElement pageListNode = ncxNode
 //          .findElements("pageList", namespace: ncxNamespace)
 //          .firstWhere((xml.XmlElement elem) => elem != null,
